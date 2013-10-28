@@ -16,9 +16,10 @@ while (<>) {
         &style_err("put space between delimiters");
     } elsif (/\/\//) {                          # No C++ comments
         &style_err("don't use C++ comments");
-    } elsif (/;(\S|^\n)/) {                     # Space after semicolon
-        &style_err("put space or newline after semicolon");
-    } elsif (/\w(\+|\-|\*|\/|<=?|>=?|==?)\w/) { # Whitespace around operators
+    } elsif (/;\S/) {                           # Space after semicolon
+        &style_err("put space after semicolon");
+                                                # Whitespace around operators
+    } elsif (/\w(\+|\-|\*|\/|<=?|>=?|==?|!=|\|\|?|\&\&?|\^)\w/) {
         &style_err("need whitespace around operator");
     } elsif (/\s\Z/) {                          # No trailing whitespace
         &style_err("delete trailing whitespace");
