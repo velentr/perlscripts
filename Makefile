@@ -1,8 +1,8 @@
 # Just install the scripts in my home directory...
 
 DESTDIR = $(HOME)/bin
-SOURCE  =  cstyle.pl regex.pl
-OBJECTS =  cstyle regex
+SOURCE  =  cstyle.pl regex.pl rext.pl
+OBJECTS =  cstyle regex rext
 
 install: $(OBJECTS)
 
