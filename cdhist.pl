@@ -32,7 +32,7 @@ sub write_cdhist {                      # write the cdhist back to file
 sub add_cdhist {                        # add new dir to cdhist
     (my $newdir) = @_;
     $newdir =~ s/~/$ENV{HOME}/;         # expand '~' and get absolute path
-    if (!($newdir =~ /\/.*/)) { $newdir = abs_path($newdir); }
+    if (!($newdir =~ /^\/.*/)) { $newdir = abs_path($newdir); }
     if (-d $newdir and $newdir ne $ENV{HOME}    # check if directory exists
             and $newdir ne ".." and $newdir ne ".") { # also check for special
         $newdir =~ s/$ENV{HOME}/~/;                   # dirs
