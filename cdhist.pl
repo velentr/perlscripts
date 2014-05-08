@@ -33,6 +33,7 @@ sub add_cdhist {                        # add new dir to cdhist
     (my $newdir) = @_;
     $newdir =~ s/~/$ENV{HOME}/;         # expand '~' and get absolute path
     if (!($newdir =~ /^\/.*/)) { $newdir = abs_path($newdir); }
+
     if (-d $newdir and $newdir ne $ENV{HOME}    # check if directory exists
             and $newdir ne ".." and $newdir ne ".") { # also check for special
         $newdir =~ s/$ENV{HOME}/~/;                   # dirs
@@ -57,15 +58,19 @@ $argc = @ARGV;
 
 if ($argc == 2 and $ARGV[0] eq "goto") {
     &get_cdhist($ARGV[1]);
-} elsif ($argc >= 2 and $ARGV[0] eq "add") {
+}
+elsif ($argc >= 2 and $ARGV[0] eq "add") {
     shift @ARGV;
     &add_cdhist($_) foreach (@ARGV);
     &write_cdhist();
-} elsif ($argc == 1 and $ARGV[0] eq "print") {
+}
+elsif ($argc == 1 and $ARGV[0] eq "print") {
     &print_cdhist();
-} elsif ($argc == 0) {
+}
+elsif ($argc == 0) {
     &get_cdhist(0);
-} else {
+}
+else {
     &usage()
 }
 
