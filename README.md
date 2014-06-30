@@ -64,6 +64,6 @@ learn anything new. Should work, but I forget the syntax
 
 ## Copyright
 
-Copyright (c) 2013-14 Brian Kubisiak <bkubisiak.git@gmail.com>
+Copyright (c) 2013-14 Brian Kubisiak <velentr.rc@gmail.com>
 
 See LICENSE for details.
