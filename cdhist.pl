@@ -36,7 +36,7 @@ sub add_cdhist {                        # add new dir to cdhist
 
     if (-d $newdir and $newdir ne $ENV{HOME}    # check if directory exists
             and $newdir ne ".." and $newdir ne ".") { # also check for special
-        $newdir =~ s/$ENV{HOME}/~/;                   # dirs
+        $newdir =~ s/^$ENV{HOME}/~/;                  # dirs
         @cdhist = grep { $_ ne $newdir } @cdhist;
         unshift @cdhist, $newdir;
         pop @cdhist if (@cdhist > 10);
