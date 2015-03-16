@@ -29,7 +29,7 @@ cdh_goto()
     else
         ARG=${1};
     fi
-    cd `cdhist goto $ARG`
+    cd "`cdhist goto "$ARG"`"
 }
 
 cdh_add()
