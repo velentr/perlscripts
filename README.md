@@ -11,9 +11,17 @@ perl:
 ## cdhist
 
 This program keeps track of all the recently used directories so that you can
-easily cd into them. The following functions need to be in your `.bashrc`:
+easily cd into them. If you use zsh (you should definitely be using zsh), then
+just source the `cdh.zsh` file in your `.zshrc`.
+
+If you are using bash, switch to zsh. Otherwise, just add the following
+functions need to your `.bashrc`:
 
 ```sh
+alias cdp='cdhist print'
+alias cds='cdh_goto'
+alias cd='cdh_add'
+
 cdh_goto()
 {
     if [ $# == 0 ]; then
@@ -31,14 +39,6 @@ cdh_add()
     fi
     \cd $*
 }
-```
-
-To use these, have the following aliases defined:
-
-```sh
-alias cdp='cdhist print'
-alias cds='cdh_goto'
-alias cd='cdh_add'
 ```
 
 Then, `cdp` will print out the last 10 working directories and their labels,
